@@ -172,7 +172,10 @@ public class BloomFilter<E> implements Serializable {
         
             for (int i = 0; i < digest.length/4 && k < hashes; i++) {
                 int h = 0;
-                for (int j = (i*4); j < (i*4)+4; j++) {
+		int g =i*4;
+		int uptoSize = g +4;
+
+                for (int j = g; j < uptoSize; j++) {
                     h <<= 8;
                     h |= ((int) digest[j]) & 0xFF;
                 }
